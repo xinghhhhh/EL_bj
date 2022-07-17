@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>OneServlet</servlet-name>
+        <servlet-class>com.bjpowernode.controller.OneServlet</servlet-class>
+    </servlet>
+    <!--
+          //1.tomcat从请求行读取到URL
+          //2.从URL读取具体请求地址【/one】
+          //3.定位[/one]对应变量【OneServlet】
+          //4.从变量【OneServlet】得到对应的class文件地址
+          //5.将class文件加载到内存
+           Class classFile = Class.forName("com.bjpowernode.controller.OneServlet")
+          //6.创建当前类文件的实例对象
+          Servlet  servlet = classFile.newInstance();
+          //7.定位当前类文件service方法
+          Method method = classFile.getMethod("service",[HttpServletRequest.class,HttpServletResponse.class]);
+          //8.通过实例对象调用service
+          method.invoke(servlet,request,response);  servlet.service(request,response)
+    -->
+    <servlet-mapping>
+        <servlet-name>OneServlet</servlet-name>
+        <url-pattern>/one</url-pattern>
+    </servlet-mapping>
+</web-app>
